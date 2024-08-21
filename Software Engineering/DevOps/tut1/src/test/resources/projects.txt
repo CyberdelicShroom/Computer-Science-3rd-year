@@ -1,0 +1,7 @@
+id, name, tech stack, time frame (hrs per week), price per hour (Rand per hour)
+6, proj1, react python mySQL go, 30, 300
+7, proj2, react C C++ javascript, 20, 200
+8, proj3, HTML javascript CSS PHP, 20, 200
+9, proj4, java python C kotlin, 25, 250
+10, proj5, C C++ go python, 40, 500
+11, proj6, mongodb express vuejs nodejs, 35, 350

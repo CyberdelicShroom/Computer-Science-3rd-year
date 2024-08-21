@@ -1,0 +1,7 @@
+id, name, proficiencies, time available (hrs per week), pay rate (Rand per hour)
+0, sabrina, javascript node C SQL, 10, 300
+1, martha, vue C react PHP, 20, 250
+2, george, C# go HTML java, 30, 300
+3, michael, HTML CSS noSQL react, 40, 380
+4, arther, postgresSQL go python kotlin, 30, 300
+5, philip, C# java C++ C, 25, 350

@@ -1,0 +1,7 @@
+id, name, proficiencies, time available (hrs per week), pay rate (Rand per hour)
+0, joshua, react python mySQL go, 20, 300
+1, james, react C C++ javascript, 40, 350
+2, bobby, mySQL go C java, 20, 250
+3, adrian, postgresSQL go C C++, 25, 300
+4, harry, vuejs java python javascript, 30, 300
+5, caitlyn, vuejs java C++ HTML, 25, 250

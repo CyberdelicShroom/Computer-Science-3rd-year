@@ -1,0 +1,39 @@
+image: maven:latest
+
+default:
+  tags:
+    - shared-docker-runner
+
+build-job:
+  stage: build
+  script:
+    - echo "Hello, $GITLAB_USER_LOGIN!"
+
+test-maven:
+  stage: test
+  script:
+    - echo "Running 5 unit tests..."
+    - cd tut1/
+    - mvn test
+  artifacts:
+    paths:
+      - tut1/target/site/
+      - tut1/target/pit-reports/
+
+deploy-prod:
+  stage: deploy
+  script:
+    - echo "This job deploys the project from the $CI_COMMIT_BRANCH branch."
+  environment: production
+
+pages:
+  stage: deploy
+  dependencies:
+    - test-maven
+  script:
+    - mv tut1/target/site/ public/
+    - mv tut1/target/pit-reports public/
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
