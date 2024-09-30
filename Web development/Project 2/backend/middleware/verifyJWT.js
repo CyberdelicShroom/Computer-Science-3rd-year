@@ -7,7 +7,7 @@ const asyncHandler = require('express-async-handler')
 
 const createToken = (id) => {
     const accessToken = sign({ id },
-    process.env.ACCESS_TOKEN_SECRET, { expiresIn: '20m' });
+    process.env.ACCESS_TOKEN_SECRET, { expiresIn: '60m' });
 
   return accessToken;
 };

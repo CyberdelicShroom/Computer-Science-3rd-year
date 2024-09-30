@@ -77,6 +77,7 @@ const storage = multer.diskStorage({
         cb(null, "../frontend/public/images");
     },
     filename: (req, file, cb) => {
+        console.log("PRINTING FILE DATA:")
         console.log(file);
         filename = file.originalname;
         // const fname = file.originalname.split(".");

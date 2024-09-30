@@ -41,7 +41,7 @@ const SignupForm = () => {
                             setSignUp_info(res.data.details);
                         } else {
                             console.log(res.data);
-                            Axios.post('/upload', data).then(res => console.log({"Image uploaded": res}));
+                            Axios.post('/upload', data).then(res => console.log({"Image uploaded": res})).catch(console.log("IMAGE NOT UPLOADED"));
                             navigate("/client_homepage");
                         }
                     })
