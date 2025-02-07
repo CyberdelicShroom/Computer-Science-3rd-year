@@ -7,7 +7,7 @@ const User = require('../models/User')
 // @route   GET /api/posts
 // @access  Private
 const getPosts = asyncHandler(async (req, res) => {
-    const posts = await Post.find({ user: req.user.id })
+    const posts = await Post.find({ })
 
     res.status(200).json(posts)
 })
@@ -24,6 +24,7 @@ const setPost = asyncHandler(async (req, res) => {
     
     const post = await Post.create({
         user: req.user.id,
+        username: req.user.username,
         caption: caption,
         image: imgPath,
         video: vidPath,

@@ -34,6 +34,7 @@ export default function PostsTimeline(props){
                                 {handleImage(post)}
                                 {handleVideo(post)}
                             </div>
+                            <span>Posted by: {post.username}</span><br/>
                             <span>Geotag: {post.geolocation[0]}, {post.geolocation[1]}</span><br/>
                             <span>Date posted: {post.timestamp}</span><br/>
 
