@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require('bcrypt');
-const { createToken } = require('../middleware/verifyJWT')
+const { createToken } = require('../middleware/verifyJWT');
+const { scryptSync, randomBytes, timingSafeEqual } = require('crypto');
 
 const handleNewUser = async (req, res) => {
 
@@ -11,9 +12,10 @@ const handleNewUser = async (req, res) => {
     const duplicate = await User.findOne({ email: email }).exec();
     if (duplicate) return res.json({details: "User already exists, try use a different email."}); //Conflict 
 
-    //encrypt the password
-
-    const hashedPwd = await bcrypt.hash(password, 10);
+    //encrypt the password with salt
+    const salt = randomBytes(16).toString('hex');
+    const hashedPassword = scryptSync(password, salt, 64).toString('hex');
+    // const hashedPwd = await bcrypt.hash(password, 10);
 
     const timestamp = Date.now();
     const dateString = new Date(timestamp).toLocaleString();
@@ -22,7 +24,7 @@ const handleNewUser = async (req, res) => {
     const user = new User({
         username: username,
         email: email,
-        password: hashedPwd,
+        password: `${salt}:${hashedPassword}`,
         timestamp: dateString,
         geolocation: geolocation,
         image: image,
